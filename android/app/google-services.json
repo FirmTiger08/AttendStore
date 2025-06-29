@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "326552966863",
+    "firebase_url": "https://attendstore-536ec-default-rtdb.firebaseio.com",
+    "project_id": "attendstore-536ec",
+    "storage_bucket": "attendstore-536ec.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326552966863:android:fae6dd2db80312012509ba",
+        "android_client_info": {
+          "package_name": "com.example.attendstore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1PWqU_3NSdRzHN8VXN1CfvnaKw9SITC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

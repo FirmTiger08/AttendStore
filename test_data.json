@@ -1,0 +1,59 @@
+{
+  "users": {
+    "advaithpr1020@gmail_com": {
+      "address": "Trivandrum",
+      "createdBy": "admin",
+      "createdOn": "2024-03-14T00:00:00.000Z",
+      "designation": "HR Manager",
+      "dob": "2003-05-02T00:00:00.000Z",
+      "email": "advaithpr1020@gmail.com",
+      "gender": "male",
+      "joiningDate": "2024-06-05T00:00:00.000Z",
+      "name": "Advaith P R",
+      "password": "123456",
+      "phone": 9446413911,
+      "role": "admin",
+      "status": "active",
+      "updatedBy": "admin",
+      "updatedOn": "2024-03-14T00:00:00.000Z",
+      "userId": 1
+    },
+    "advaith@gmail_com": {
+      "address": "Kochi",
+      "createdBy": "admin",
+      "createdOn": "2024-03-14T00:00:00.000Z",
+      "designation": "Software Engineer",
+      "dob": "1995-03-15T00:00:00.000Z",
+      "email": "advaith@gmail.com",
+      "gender": "male",
+      "joiningDate": "2024-01-02T00:00:00.000Z",
+      "name": "Advaith",
+      "password": "123456",
+      "phone": 9876543210,
+      "role": "employee",
+      "status": "active",
+      "updatedBy": "admin",
+      "updatedOn": "2024-03-14T00:00:00.000Z",
+      "userId": 2
+    },
+    "firmtiger@gmail_com": {
+      "address": "Kollam",
+      "createdBy": "admin",
+      "createdOn": "2024-03-14T00:00:00.000Z",
+      "designation": "Software Developer",
+      "dob": "1995-03-15T00:00:00.000Z",
+      "email": "firmtiger@gmail.com",
+      "gender": "male",
+      "joiningDate": "2024-01-02T00:00:00.000Z",
+      "name": "Advaith",
+      "password": "080808",
+      "phone": 9876543210,
+      "role": "employee",
+      "status": "active",
+      "updatedBy": "admin",
+      "updatedOn": "2024-03-14T00:00:00.000Z",
+      "userId": 3
+    }
+    
+  }
+}
