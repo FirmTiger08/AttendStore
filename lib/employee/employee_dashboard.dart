@@ -1,27 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'employee_master_screen.dart';
-import 'attendance_screen.dart';
-import 'leave_calendar_screen.dart';
-import 'codes_config_screen.dart';
-import 'policies_screen.dart';
-import 'qr_code_generator_screen.dart';
-import '../widgets/app_drawer.dart';
-import '../widgets/leave_calendar_widget.dart';
+import '../common/attendance_screen.dart';
+import '../common/policies_screen.dart';
+import '../common/widgets/app_drawer.dart';
+import '../common/widgets/leave_calendar_widget.dart';
 
-class AdminDashboard extends StatefulWidget {
+class EmployeeDashboard extends StatefulWidget {
   final String userEmail;
   
-  const AdminDashboard({
+  const EmployeeDashboard({
     super.key,
     required this.userEmail,
   });
 
   @override
-  State<AdminDashboard> createState() => _AdminDashboardState();
+  State<EmployeeDashboard> createState() => _EmployeeDashboardState();
 }
 
-class _AdminDashboardState extends State<AdminDashboard> {
+class _EmployeeDashboardState extends State<EmployeeDashboard> {
   final _firestore = FirebaseFirestore.instance;
   String _userName = '';
 
@@ -40,7 +36,6 @@ class _AdminDashboardState extends State<AdminDashboard> {
         });
       }
     } catch (e) {
-      // Handle error silently
       debugPrint('Error loading user data: $e');
     }
   }
@@ -48,56 +43,19 @@ class _AdminDashboardState extends State<AdminDashboard> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final crossAxisCount = screenWidth > 1200 ? 4 : (screenWidth > 600 ? 3 : 2);
+    final crossAxisCount = screenWidth > 600 ? 3 : 2;
     
     // Define dashboard items as a list
     final List<_DashboardItem> dashboardItems = [
       _DashboardItem(
-        title: 'Employee Master',
-        icon: Icons.people,
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => EmployeeMasterScreen(
-                isAdmin: true,
-                userEmail: widget.userEmail,
-              ),
-            ),
-          );
-        },
-      ),
-      _DashboardItem(
-        title: 'Leave Calendar',
-        icon: Icons.calendar_month,
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const LeaveCalendarScreen(isAdmin: true),
-            ),
-          );
-        },
-      ),
-      _DashboardItem(
-        title: 'Leave Management',
-        icon: Icons.leak_remove,
-        onTap: () {
-          Navigator.pushNamed(
-            context,
-            '/leave-management',
-          );
-        },
-      ),
-      _DashboardItem(
         title: 'Attendance',
-        icon: Icons.checklist,
+        icon: Icons.history,
         onTap: () {
           Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => AttendanceScreen(
-                isAdmin: true,
+                isAdmin: false,
                 userEmail: widget.userEmail,
               ),
             ),
@@ -105,42 +63,21 @@ class _AdminDashboardState extends State<AdminDashboard> {
         },
       ),
       _DashboardItem(
-        title: 'Policies',
+        title: 'Leave\nRequest',
+        icon: Icons.event_busy,
+        onTap: () {
+          Navigator.pushNamed(context, '/apply-leave');
+        },
+      ),
+      _DashboardItem(
+        title: 'Company\nPolicies',
         icon: Icons.policy,
         onTap: () {
           Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => PoliciesScreen(
-                isAdmin: true,
-                userEmail: widget.userEmail,
-              ),
-            ),
-          );
-        },
-      ),
-      _DashboardItem(
-        title: 'Codes Config',
-        icon: Icons.settings,
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => CodesConfigScreen(
-                userEmail: widget.userEmail,
-              ),
-            ),
-          );
-        },
-      ),
-      _DashboardItem(
-        title: 'QR Code Generator',
-        icon: Icons.qr_code,
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => QRCodeGeneratorScreen(
+                isAdmin: false,
                 userEmail: widget.userEmail,
               ),
             ),
@@ -151,12 +88,12 @@ class _AdminDashboardState extends State<AdminDashboard> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Admin Dashboard'),
+        title: const Text('Employee Dashboard'),
       ),
       drawer: AppDrawer(
         userEmail: widget.userEmail,
         userName: _userName,
-        userRole: 'admin',
+        userRole: 'employee',
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -173,7 +110,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
             SizedBox(
               height: screenWidth > 600 ? 400 : 300,
               child: const LeaveCalendarWidget(
-                isAdmin: true,
+                isAdmin: false,
                 showControls: true,
               ),
             ),
@@ -207,15 +144,15 @@ class _AdminDashboardState extends State<AdminDashboard> {
           children: [
             Icon(
               icon,
-              size: 48.0,
+              size: MediaQuery.of(context).size.width > 600 ? 64.0 : 48.0,
               color: Theme.of(context).primaryColor,
             ),
             const SizedBox(height: 8.0),
             Text(
               title,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 16.0,
+              style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width > 600 ? 18.0 : 16.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -232,4 +169,4 @@ class _DashboardItem {
   final IconData icon;
   final VoidCallback onTap;
   _DashboardItem({required this.title, required this.icon, required this.onTap});
-}
+} 

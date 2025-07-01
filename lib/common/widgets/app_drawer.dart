@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
-import '../screens/profile_screen.dart';
+import '../profile_screen.dart';
 import '../services/auth_service.dart';
-import '../main.dart';
+import '../../main.dart';
 
 class AppDrawer extends StatelessWidget {
   final String userEmail;

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 import 'package:printing/printing.dart';
-import '../services/pdf_generator_service.dart';
-import 'employee_qr_checkin_screen.dart';
+import 'services/pdf_generator_service.dart';
+import '../employee/employee_qr_checkin_screen.dart';
 
 class AttendanceScreen extends StatefulWidget {
   final bool isAdmin;

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase_options.dart';
-import 'screens/login_screen.dart';
-import 'screens/admin_dashboard.dart';
-import 'screens/employee_dashboard.dart';
-import 'screens/apply_leave_screen.dart';
-import 'screens/leave_management_screen.dart';
-import 'screens/codes_config_screen.dart';
-import 'services/auth_service.dart';
-import 'theme/app_theme.dart';
+import 'common/login_screen.dart';
+import 'admin/admin_dashboard.dart';
+import 'employee/employee_dashboard.dart';
+import 'employee/apply_leave_screen.dart';
+import 'common/leave_management_screen.dart';
+import 'admin/codes_config_screen.dart';
+import 'common/services/auth_service.dart';
+import 'common/theme/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

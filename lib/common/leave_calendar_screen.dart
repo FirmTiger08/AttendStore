@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 import 'package:printing/printing.dart';
-import '../services/pdf_generator_service.dart';
+import 'services/pdf_generator_service.dart';
 
 class LeaveCalendarScreen extends StatefulWidget {
   final bool isAdmin;
