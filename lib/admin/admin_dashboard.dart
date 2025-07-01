@@ -8,6 +8,7 @@ import '../common/policies_screen.dart';
 import 'qr_code_generator_screen.dart';
 import '../common/widgets/app_drawer.dart';
 import '../common/widgets/leave_calendar_widget.dart';
+import '../common/widgets/weather_widget.dart';
 
 class AdminDashboard extends StatefulWidget {
   final String userEmail;
@@ -163,6 +164,15 @@ class _AdminDashboardState extends State<AdminDashboard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 16.0),
+              child: Center(
+                child: WeatherWidget(
+                  city: 'Thiruvananthapuram',
+                  apiKey: '9d077fffdf8c4ccf85260929250107',
+                ),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.only(bottom: 4.0),
               child: Text(

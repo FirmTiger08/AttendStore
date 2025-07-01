@@ -4,6 +4,7 @@ import '../common/attendance_screen.dart';
 import '../common/policies_screen.dart';
 import '../common/widgets/app_drawer.dart';
 import '../common/widgets/leave_calendar_widget.dart';
+import '../common/widgets/weather_widget.dart';
 
 class EmployeeDashboard extends StatefulWidget {
   final String userEmail;
@@ -100,6 +101,15 @@ class _EmployeeDashboardState extends State<EmployeeDashboard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const Padding(
+              padding: EdgeInsets.only(bottom: 16.0),
+              child: Center(
+                child: WeatherWidget(
+                  city: 'Thiruvananthapuram',
+                  apiKey: '9d077fffdf8c4ccf85260929250107',
+                ),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.only(bottom: 4.0),
               child: Text(
